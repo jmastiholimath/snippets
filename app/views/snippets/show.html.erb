@@ -1,0 +1,24 @@
+<div class="container">
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @snippet.description %>
+</p>
+
+<p>
+  <strong>Private:</strong>
+  <%= @snippet.private %>
+</p>
+
+
+<p>
+  <strong>Url:</strong>
+  <%= request.base_url + "/snippets/"+ @snippet.id.to_s %>
+</p>
+
+<%#= link_to 'Edit', edit_snippet_path(@snippet) %> 
+<%= link_to 'Back', snippets_path,:class=>"btn btn-primary" %>
+</div>
+</div>

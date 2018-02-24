@@ -22,8 +22,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use ActiveModel has_secure_password
+gem 'therubyracer'  # If using Ruby
+gem 'therubyrhino'  # If using JRuby
+gem 'jquery-rails'  # If using Bootstrap's JS plugins.
+gem 'less-rails-bootstrap'# Use ActiveModel has_secure_password
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'ajax-datatables-rails'
+gem 'url_store'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
@@ -35,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do

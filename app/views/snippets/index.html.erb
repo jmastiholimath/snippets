@@ -1,0 +1,33 @@
+
+<div class="container">
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Snippets</h1>
+
+<table id="snippets-table", class="table",  data-source="<%= snippets_path(format: :json)%>">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Private</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snippets.each do |snippet| %>
+      <tr>
+        <td><%= link_to  snippet.description_short, snippet.private? ? "/snippets/#{snippet.id}?data=#{UrlStore.encode(snippet.id)}" : snippet%></td>
+        <td><%= snippet.private %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snippet', new_snippet_path,:class=>"btn btn-primary" %>
+</div>
+</div>
+

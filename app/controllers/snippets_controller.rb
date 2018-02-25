@@ -28,10 +28,6 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.new
   end
 
-  # GET /snippets/1/edit
-  # def edit
-  # end
-
   # POST /snippets
   # POST /snippets.json
   def create
@@ -48,29 +44,6 @@ class SnippetsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /snippets/1
-  # PATCH/PUT /snippets/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @snippet.update(snippet_params)
-  #       format.html { redirect_to @snippet, notice: 'Snippet was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @snippet }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @snippet.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  # DELETE /snippets/1
-  # DELETE /snippets/1.json
-  # def destroy
-  #   @snippet.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to snippets_url, notice: 'Snippet was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

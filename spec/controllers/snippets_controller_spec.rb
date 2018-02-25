@@ -29,11 +29,11 @@ RSpec.describe SnippetsController, type: :controller do
   # Snippet. As you add validations to Snippet, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {description: 'Anything', private: false}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {description:  (0...8193).map { ('a'..'z').to_a[rand(26)] }.join, private: false}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -64,13 +64,6 @@ RSpec.describe SnippetsController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "returns a success response" do
-      snippet = Snippet.create! valid_attributes
-      get :edit, {:id => snippet.to_param}, valid_session
-      expect(response).to be_success
-    end
-  end
 
   describe "POST #create" do
     context "with valid params" do
@@ -91,50 +84,6 @@ RSpec.describe SnippetsController, type: :controller do
         post :create, {:snippet => invalid_attributes}, valid_session
         expect(response).to be_success
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested snippet" do
-        snippet = Snippet.create! valid_attributes
-        put :update, {:id => snippet.to_param, :snippet => new_attributes}, valid_session
-        snippet.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "redirects to the snippet" do
-        snippet = Snippet.create! valid_attributes
-        put :update, {:id => snippet.to_param, :snippet => valid_attributes}, valid_session
-        expect(response).to redirect_to(snippet)
-      end
-    end
-
-    context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        snippet = Snippet.create! valid_attributes
-        put :update, {:id => snippet.to_param, :snippet => invalid_attributes}, valid_session
-        expect(response).to be_success
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested snippet" do
-      snippet = Snippet.create! valid_attributes
-      expect {
-        delete :destroy, {:id => snippet.to_param}, valid_session
-      }.to change(Snippet, :count).by(-1)
-    end
-
-    it "redirects to the snippets list" do
-      snippet = Snippet.create! valid_attributes
-      delete :destroy, {:id => snippet.to_param}, valid_session
-      expect(response).to redirect_to(snippets_url)
     end
   end
 

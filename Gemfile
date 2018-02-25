@@ -29,6 +29,7 @@ gem 'less-rails-bootstrap'# Use ActiveModel has_secure_password
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'ajax-datatables-rails'
 gem 'url_store'
+gem 'responders', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
